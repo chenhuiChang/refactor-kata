@@ -33,7 +33,7 @@ public class POSDisplayer {
         setDisplayRegion(0,0,detailDisplay.getFrameLength(),detailDisplay.getFrameWidth());
     }
 
-    private void setDisplayRegion(int aX, int aY, int bX, int bY) {
+    protected void setDisplayRegion(int aX, int aY, int bX, int bY) {
         displayDirection[0] = aX;
         displayDirection[1] = aY;
         displayDirection[2] = bX;
