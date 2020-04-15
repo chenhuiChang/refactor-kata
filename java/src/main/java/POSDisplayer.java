@@ -18,7 +18,7 @@ public class POSDisplayer {
 
     }
 
-    public void process(ServletRequest request) {
+    public void process(ServletRequestInterface request) {
         String [] values
                 = request.getParameterValues(pageStateName);
         setMarketBindings(values);
