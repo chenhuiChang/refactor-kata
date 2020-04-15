@@ -21,16 +21,22 @@ public class POSDisplayer {
     public void process(ServletRequest request) {
         String [] values
                 = request.getParameterValues(pageStateName);
-        if (values != null && values.length > 0) {
-            marketBindings.put(pageStateName + getDateStamp(),
-                               values[0]);
-        }
+        setMarketBindings(values);
 
-        detailDisplay = new DetailFrame();
-        detailDisplay.setDescription(
-                    getDetailText() + " " + getProjectionText());
-        detailDisplay.show();
+        setDisplayText(getDetailText() + " " + getProjectionText());
         setDisplayRegion(0,0,detailDisplay.getFrameLength(),detailDisplay.getFrameWidth());
+    }
+
+    private void setMarketBindings(String[] values) {
+        if (values != null && values.length > 0) {
+            marketBindings.put(pageStateName + getDateStamp(), values[0]);
+        }
+    }
+
+    private void setDisplayText(String description) {
+        detailDisplay = new DetailFrame();
+        detailDisplay.setDescription(description);
+        detailDisplay.show();
     }
 
     protected void setDisplayRegion(int aX, int aY, int bX, int bY) {
